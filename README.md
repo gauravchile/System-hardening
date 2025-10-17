@@ -1,8 +1,11 @@
-# System Hardening Project for SOC Analysts
+# 🛡️ System Hardening Project for SOC Analysts
 
-This project demonstrates how to harden a CentOS 9 system following security best practices, focusing on system monitoring, auditing, and incident detection. It is designed for SOC Analysts who need to understand how preventive security measures can help detect, monitor, and respond to threats.
+This project demonstrates how to **harden a CentOS 9 system** following security best practices, focusing on system monitoring, auditing, and incident detection.  
+Designed for SOC Analysts to understand preventive security measures for detecting, monitoring, and responding to threats.
 
-## Table of Contents
+---
+
+## 📌 Table of Contents
 - [Project Overview](#project-overview)
 - [System Hardening Steps](#system-hardening-steps)
 - [Hardening Scripts](#hardening-scripts)
@@ -10,69 +13,103 @@ This project demonstrates how to harden a CentOS 9 system following security bes
 - [Reports and Logs](#reports-and-logs)
 - [Testing and Results](#testing-and-results)
 - [How to Use](#how-to-use)
+- [License](#license)
 
-## Project Overview
-The purpose of this project is to harden a Linux system by implementing best security practices and monitoring techniques. This helps reduce the attack surface and ensures the system is prepared for potential attacks.
+---
 
-## System Hardening Steps
-1. **SSH Hardening**: Securing SSH by disabling root login, enforcing key-based authentication, and more.
-2. **Firewall Setup**: Configuring `firewalld` to limit exposure to essential services.
-3. **User and Group Management**: Enforcing least privilege and implementing lockout policies.
-4. **File Integrity Monitoring**: Setting up `AIDE` to detect unauthorized changes.
-5. **Auditing with `Auditd`**: Monitoring key system actions like file changes and login attempts.
-6. **SELinux Enforcement**: Ensuring SELinux is in enforcing mode to restrict unauthorized actions.
+## 📝 Project Overview
 
-## Hardening Scripts
+The purpose of this project is to harden a Linux system by implementing **best security practices** and monitoring techniques.  
+This reduces the attack surface and ensures the system is prepared for potential attacks.
+
+---
+
+## 🔒 System Hardening Steps
+
+1. **SSH Hardening** – Disable root login, enforce key-based authentication, and secure configuration.  
+2. **Firewall Setup** – Configure `firewalld` to allow only essential services.  
+3. **User and Group Management** – Enforce least privilege, password policies, and account lockouts.  
+4. **File Integrity Monitoring** – Set up `AIDE` to detect unauthorized changes.  
+5. **Auditing with Auditd** – Monitor key system actions like file changes and login attempts.  
+6. **SELinux Enforcement** – Ensure SELinux is in enforcing mode to restrict unauthorized actions.
+
+---
+
+## 🛠️ Hardening Scripts
+
 This repository contains Bash scripts to automate hardening tasks:
-- **`firewall-setup.sh`**: Sets up basic firewall rules.
-- **`ssh-hardening.sh`**: Configures SSH securely.
-- **`user-management.sh`**: Automates password policies and lockout setup.
-- **`file-integrity-monitoring.sh`**: Configures `AIDE` for file integrity checks.
-- **`auditd-setup.sh`**: Sets up `Auditd` to monitor critical system actions.
 
-## Configuration Files
-- **`sshd_config`**: The hardened configuration for SSH.
-- **`aide.conf`**: Configuration file for AIDE.
-- **`audit.rules`**: Rules used by `Auditd` to monitor system events.
+- **`firewall-setup.sh`** – Sets up basic firewall rules  
+- **`ssh-hardening.sh`** – Secures SSH configuration  
+- **`user-management.sh`** – Automates password policies and lockout setup  
+- **`file-integrity-monitoring.sh`** – Configures `AIDE` for file integrity checks  
+- **`auditd-setup.sh`** – Sets up `Auditd` to monitor critical system actions
 
-## Reports and Logs
-You can find the detailed results of the security measures in the `reports/` directory:
-- **Initial and final `Lynis` audits**.
-- **Firewall testing report**.
-- **AIDE integrity check results**.
+---
 
-## Testing and Results
-Screenshots of logs and monitoring tools in action:
-- **SSH login monitoring**: Screenshot showing how failed login attempts are logged.
-- **Firewall logs**: Logs of dropped packets.
-- **Auditd logs**: Tracking file modifications and user actions.
+## ⚙️ Configuration Files
 
-## How to Use
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/system-hardening-project.git
-   cd system-hardening-project
+- **`sshd_config`** – Hardened SSH configuration  
+- **`aide.conf`** – Configuration file for `AIDE`  
+- **`audit.rules`** – Rules for `Auditd` to monitor system events
 
+---
 
-##Set Up the Network Topology
+## 📄 Reports and Logs
 
-   Refer to network_diagram.png in the network_topology/ folder.
-   Set up VMs as per the diagram with static IP addresses.
-   Install and Configure System Hardening
+Check the `reports/` directory for detailed results of security measures:
 
-   Use the setup_hardening.sh script in the scripts/ folder to apply basic hardening configurations.
-   Customize the system_hardening.conf file located in the system_hardening/ folder with security settings. 
-   Apply Security Best Practices
+- Initial and final `Lynis` audits  
+- Firewall testing report  
+- `AIDE` integrity check results  
 
-##Implement best practices such as:
-   Enforcing strong password policies.
-   Configuring firewall rules (using ufw or iptables).
-   Disabling unnecessary services.
-   Applying security patches and updates.
-   Perform Security Audits
+---
 
-   Run scripts from the hardening-scriptss/ folder to verify that hardening measures are effectively applied.
-   Check system logs for any issues or alerts related to security configurations.
+## 🖥️ Testing and Results
 
-##License
-   This project is licensed under the MIT License.
+Screenshots and logs showing monitoring in action:
+
+- SSH login monitoring – logs of failed login attempts  
+- Firewall logs – dropped packets  
+- Auditd logs – tracking file modifications and user actions  
+
+---
+
+## ⚡ How to Use
+
+1. **Clone the repository:**
+
+```bash
+git clone https://github.com/yourusername/system-hardening-project.git
+cd system-hardening-project
+```
+
+2. **Set up the network topology**  
+   - Refer to `network_topology/network_diagram.png`  
+   - Configure VMs with static IPs as per the diagram
+
+3. **Install and configure system hardening**  
+
+```bash
+cd scripts/
+sudo ./setup_hardening.sh
+```
+
+4. **Customize security settings**  
+   - Edit `system_hardening/system_hardening.conf` to adjust hardening rules
+
+5. **Apply security best practices**  
+   - Enforce strong password policies  
+   - Configure firewall rules (`ufw` or `iptables`)  
+   - Disable unnecessary services  
+   - Apply security patches and updates
+
+6. **Perform security audits**  
+   - Run scripts in `hardening-scripts/` to verify hardening measures  
+   - Check system logs for issues or alerts
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
